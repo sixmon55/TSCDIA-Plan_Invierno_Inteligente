@@ -34,7 +34,7 @@ Esto afecta directamente a la Coordinación Logística, que debe decidir la asig
 | **Título de propiedad** | Cualitativa Dicotómica |
 | **Clasificación barrio** | Cualitativa Nominal |
 | **Superficie m²** | Cuantitativa Continua |
-| **pct_nbi_tot, pct_hacinamiento_critico, pct_privacion_convergente, pct_alguna_privacion** | Cuantitativas Continuas (Censo 2022, incorporadas en Evidencia 2) |
+| **pct_nbi_tot, pct_hacinamiento_critico, pct_privacion_convergente, pct_alguna_privacion** | Cuantitativas Continuas (Censo 2022) |
 | **indice_logistico** | Cuantitativa Continua (variable objetivo construida: combina volumen de familias y severidad del déficit energético) |
 
 ## Producto final
