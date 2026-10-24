@@ -1,28 +1,22 @@
-# Evidencia n° 1 - Comprensión del problema y datos.
-### Titulo del proyecto: Plan Invierno Inteligente.
+# Plan Invierno Inteligente
+**Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial — ISPC**
+Integrantes: Espinosa, Rodrigo Alejandro · Guevara, Gonzalo Hernán · Ormeño Quinteros, Florencia Micaela · Pedrone Pfeiffer, Joaquín · Rojas, Simón · Sanches, Mauricio Ezequiel
 
-### Problemática
+## Problemática
 
-La falta de precisión en la distribución de recursos críticos, como leña, garrafas y tanques de agua, representa un desafío para la ONG. Este problema se origina debido a que la organización no cuenta con una herramienta que integre los datos de carencia energética con el volumen real de familias por barrio, lo que impide una planificación logística eficiente. Esta situación afecta directamente a la Coordinación Logística, que debe decidir la asignación de presupuestos y camiones sin información precisa, y perjudica principalmente a las familias de los barrios populares del RENABAP, destinatarios finales de la ayuda.
-La problemática se manifiesta concretamente durante la planificación y ejecución del "Operativo Invierno". Al momento de cargar los camiones y diseñar las rutas de entrega, la ONG carece de la exactitud necesaria para determinar si un barrio específico requiere más leña que gas, o si la cantidad de insumos enviados cubrirá realmente a todas las familias censadas. Como consecuencia, se produce una pérdida significativa de recursos económicos y tiempo operativo al enviar suministros equivocados o insuficientes a zonas de difícil acceso. No obstante, el impacto más grave es el costo social: familias en situación de vulnerabilidad extrema quedan desprotegidas ante las olas de frío por una distribución basada en estimaciones y no en datos concretos.
+La falta de precisión en la distribución de recursos críticos (leña, garrafas y tanques de agua) representa un desafío para la ONG que ejecuta el "Operativo Invierno" en barrios populares de Argentina. La organización no cuenta con una herramienta que integre los datos de carencia energética con el volumen real de familias por barrio, lo que impide una planificación logística eficiente.
 
-### Fuente de Datos
+Esto afecta directamente a la Coordinación Logística, que debe decidir la asignación de presupuesto y camiones sin información precisa, y perjudica principalmente a las familias de los barrios populares del RENABAP: al momento de cargar los camiones y diseñar rutas, la ONG no puede determinar con exactitud qué insumo necesita cada barrio ni si la cantidad enviada cubrirá a las familias censadas. El resultado es pérdida de recursos y tiempo operativo y, sobre todo, desprotección social ante las olas de frío.
 
-Los datos utilizados en este proyecto provienen de fuentes oficiales y abiertas de la República Argentina.
+## Fuente de Datos
 
-**Fuente:** Portal Nacional de Datos Públicos ([datos.gob.ar](https://datos.gob.ar)).
+- **RENABAP** — Registro Nacional de Barrios Populares, Portal Nacional de Datos Públicos ([datos.gob.ar](https://datos.gob.ar)), Ministerio de Economía (Subsecretaría de Integración Socio Urbana). Formato CSV, Licencia Abierta de Datos de Argentina.
 
-**Dataset:** Registro Nacional de Barrios Populares - “20231205_info_publica_datos_barrios.” (RENABAP).
+- **Censo Nacional de Población, Hogares y Viviendas 2022** — Instituto Nacional de Estadística y Censos (INDEC), República Argentina. Indicadores obtenidos a nivel de radio censal a través de **REDATAM** (REcuperación de DATos para Áreas pequeñas por Microcomputador, [redatam.indec.gob.ar](https://redatam.indec.gob.ar)), la plataforma oficial de INDEC para la consulta de microdatos censales por áreas pequeñas, y asignados a cada barrio por cruce espacial (centroide del barrio dentro del radio censal)
 
-**Organismo Originario:** Ministerio de Economía, Secretaría de Obras Públicas, Subsecretaría de Integración Socio Urbana.
+## Variables de Interés
 
-**Formato de los datos:** CSV.
-
-**Licencia:** Licencia Abierta de Datos de Argentina.
-
-### Variables de Interés
-
-| Variable | Tipo de Variable |
+| Variable | Tipo de variable |
 | :--- | :--- |
 | **Nombre barrio** | Cualitativa Nominal |
 | **Provincia** | Cualitativa Nominal |
@@ -38,4 +32,17 @@ Los datos utilizados en este proyecto provienen de fuentes oficiales y abiertas 
 | **Calefacción** | Cualitativa Nominal |
 | **Título de propiedad** | Cualitativa Dicotómica |
 | **Clasificación barrio** | Cualitativa Nominal |
-| **Superficie m2** | Cuantitativa Continua |
+| **Superficie m²** | Cuantitativa Continua |
+| **pct_nbi_tot, pct_hacinamiento_critico, pct_privacion_convergente, pct_alguna_privacion** | Cuantitativas Continuas (Censo 2022, incorporadas en Evidencia 2) |
+| **indice_logistico** | Cuantitativa Continua (variable objetivo construida: combina volumen de familias y severidad del déficit energético) |
+
+## Producto final
+
+El entregable es **`dashboard_portable.html`**: un dashboard autocontenido en HTML, que se abre con doble clic en cualquier navegador, sin instalar nada. Incluye:
+
+- Filtros por provincia, localidad y tipo de calefacción
+- Cálculo y visualización de insumos (leña y garrafas) por barrio.
+- Mapa interactivo (Leaflet.js + Esri World Street Map) que prioriza los barrios según el `indice_logistico`.
+- Tabla de priorización ordenable, con selección de fila y zoom automático al barrio elegido.
+
+Los datos y el modelo ya entrenado viajan embebidos en el propio archivo.
