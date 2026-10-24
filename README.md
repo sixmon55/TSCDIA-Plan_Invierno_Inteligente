@@ -1,5 +1,6 @@
 # Plan Invierno Inteligente
 **Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial — ISPC**
+
 Integrantes: Espinosa, Rodrigo Alejandro · Guevara, Gonzalo Hernán · Ormeño Quinteros, Florencia Micaela · Pedrone Pfeiffer, Joaquín · Rojas, Simón · Sanches, Mauricio Ezequiel
 
 ## Problemática
